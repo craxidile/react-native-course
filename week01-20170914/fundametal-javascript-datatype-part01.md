@@ -369,12 +369,12 @@ _remove whitespace from both sides of a string_
 string.trim()
 ```
 ``` javascript
-var a = "hello     "
+var a = "\n \t hello     \n \t"
 a.trim()
 //result = "hello"
 ```
 
-## Trips or Tricks
+## Tips and Tricks
 ```javascript
 //parseInt , parseFloat;
 +'5.0000000000034'
