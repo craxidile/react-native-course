@@ -1,15 +1,30 @@
-```javascript
-//ep 1 : var , let ,const
+# Fundamental JavaScript: Data Types Pt. 01
 
-const c = 100;
-c = 102;
-----------------
-let
-var
+## 1. Var / Let / Const
+**var**: Create a variable without caring of scopes
+
+**let**: Create a variable with caring of scopes
+
+``` javascript
+
 var a = 10;
-a=12;
+a = 12; // The variable can be reassigned.
 console.log(a) // 12
 
+```
+
+**const**: Create a constant (No assignment later)
+
+
+``` javascript
+
+const c = 100;
+c = 102; // Will produces an error.
+
+```
+
+
+``` javascript
 -----no scope-----
 {var b = 12; }
 
@@ -25,6 +40,10 @@ for() var no ok ----> unscope
     var z = 10;
 
 })();
+```
+
+
+``` javascript
 
 ----------------
 
