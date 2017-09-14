@@ -276,7 +276,7 @@ a.slice(2);
 //result = 'cdefgh'
 
 a.slice(-2);
-//result ='gh'
+//result ='fg'
 
 a.slice(0, 5);
 //result = 'abcde';
@@ -291,7 +291,7 @@ a.slice(-1, -5);
 //result = '';
 
 a.slice(-5, -1);
-//result = 'defg';
+//result = 'cdef';
 
 ```
 **Note**
