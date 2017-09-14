@@ -60,7 +60,7 @@ _use closure style_
   * object {}
   * function
 
-## 3. truthly and falsy
+## 3. truthy and falsy
 
 **undefined** is falsy
 
@@ -68,13 +68,13 @@ _use closure style_
 
 **NaN** is falsy
 
-**other number** is truthly
+**other number** is truthy
 
 **Empty String** is falsy
 
-**String** is truthly
+**String with character** is truthy
 
-**true** is truthly
+**true** is truthy
 
 **false** is falsy
 
@@ -216,18 +216,19 @@ String.fromCharCode(97)
 
 ```javascript
 var a ='abcd#fg'
+
 a.indexOf('#')
-//result = 
+//result = 4;
+
 a.lastIndexOf('#')
+//result = 4;
 ```
+**note:**  _If not found return -1_
+
+  * subString
+
 
 ``` javascript
-
-// function of String
-
-var a = 'asdsadasd#asdsad'
-a.indexOf('#')
-a.lastIndexOf('#')
 
 // if not found retur -1 
 
