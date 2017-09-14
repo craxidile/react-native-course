@@ -1,18 +1,37 @@
 # Fundamental JavaScript: Data Types Pt. 01
 
 ## 1. Var / Let / Const
-**var**: Create a variable without caring of scopes
+**var**: Create a variable without consideration of scopes wrapping around it
 
-**let**: Create a variable with caring of scopes
+**let**: Create a variable with consideration of scopes wrapping around it
 
 ``` javascript
 
 var a = 10;
 a = 12; // The variable can be reassigned.
 console.log(a) // 12
+let b = 10;
+b = 12;// The variable can be reassigned.
+console.log(b) //12
+
 
 ```
+**diffrence between var and let**
 
+**let** in scope
+```javascript
+for(let i = 1 ; i <= 10 ; i++){
+    console.log(i);
+}
+console.log(i); //error 
+```
+**var** not in scope
+```javascript
+for(var i = 1 ; i <= 10 ; i++){
+    console.log(i);
+}
+console.log(i); // print i = 10; 
+```
 **const**: Create a constant (No assignment later)
 
 
@@ -22,161 +41,187 @@ const c = 100;
 c = 102; // Will produces an error.
 
 ```
+_In last peroid , there isn't let_ 
 
-
-``` javascript
------no scope-----
-{var b = 12; }
-
------scope-------
-{let f = 13; }
-
-for() let ok ------> scope
-for() var no ok ----> unscope
-
-
-------closure----
+_use closure style_
+```javascript
 (function(){
     var z = 10;
 
 })();
 ```
 
+## 2. Type of javascript
 
-``` javascript
+  * undefined
+  * boolean(true,false)
+  * number
+  * string
+  * object {}
+  * function
 
-----------------
+## 3. truthly and falsy
 
+**undefined** is falsy
 
-// ep 2: operator 
+**0** is falsy
 
-+,-,*,//
+**NaN** is falsy
 
-typeof javascript
+**other number** is truthly
 
-- undefined
-- boolean (true,flase)
-- number  
-- string
-- object {}
-- function
+**Empty String** is falsy
 
-*warning 'undefined'*
+**String** is truthly
 
-//ep 3 : truthly and falsy
+**true** is truthly
 
-empty string ('') => falsy
+**false** is falsy
 
-boolean 
+**null** is falsy
+   
+**Wrapper object**
 
-var m = true | false;
-
-&& || 
-
-function example(){
-    var m = 0;
-    if( m >0){
-        console.log('yes');
-    }else{
-        console.log('no');
-    }
-}
-
-function exampleShorthand(){
-   // m > 0 ? console.log('yes') : console.log('no');
-   // m > 0 && console.log('yes);
-    //m <= 0 && console.log('yes');
-    //m <= 0 && m == 0 && console.log('yo');
-    //!m && console.log('yo');
-
-
-    
-
-    //m == 0 || console.log('yo');
-    //m || console.log('yo');
-
-
-}
-
-undefined = falsy 
-!!undefined
-
-//
-
-//new or not new 
-
-var n = new Boolean(true)
-n.name = 'pond';
-
-new Boolean () <- wrapper object
-Boolean() | true | false <- primitive type
-
-// ---- wrapper object ------
+```javascript
 new String()
 new Object
 new Array()
+// Can add properties to wrapper object
 
-//-------- Number ----------
+//Example
+var n = new Boolean(true);
+n.name = 'pond';
+console.log(n.name); //pond
+```
 
+**Primitive type**
+
+```javascript
+var n = Boolean() 
+// Can't add properties to primitive type
+```
+
+## 4. Type Number
+
+```javascript
 var m  = Number(5);
 var m = 5.000;
 // integer
 
 var m = 5.001;
 // floating point
+```
+**Limit of Number**
+```javascript
+Number.MAX_VALUE //1.7976931348623157e+308
+```
+**Safe Number**
+```javascript
+Number.MAX_SAFE_INTEGER //9007199254740991
+```
 
-//limit Number.MAX_VALUE
-//safe Number.MAX_SAFE_INTEGER
+**NOTES 01:  Number Operation with different types**
 
-//integer + floating = floating
+_integer + float = float_
 
-// 1 + undefined = NaN
-// NaN --> type error
-// NaN --> falsy
-// NaN == false ----> false
-// NaN == NaN ----> false
-// solve by isNaN(m) ***********
+_number + String = String_
 
-var q = 1/0;
-// q ----> Infinity , tyoeof q ---> number
+_number + undefined = NaN_
+
+_number + true = number + 1_
+
+_number + false = number + 0_
+
+_number + function = String_
+
+_number + Object = String_
+
+**NOTES 02: NaN**
+
+_NaN is type error_
+
+_NaN is falsy_
+
+```javascript
+NaN == false // result = false
+NaN == NaN // result = false
+```
+_*** Solve by use isNaN(m)_
+
+**NOTES 03: Infinity**
+
+```javascript
+var q = 1 / 0;
+
+//q = Infinity , typeof q = number
 
 var q = 1/0.000000000001;
-// q ----> not infinity 
 
-// decimal 
+// q isn't Infinity 
+```
 
+_Infinity + Infinity = Infinity_
+
+_Infinity - Infinity = NaN_
+
+**NOTES 04: Decimal and Base number**
+
+```javascript
 var a = 5;
-a.toFixed(20);
+a.toFixed(2);
 
+//result = 2.00
 
-//0o11 --> 9 base number = 8
-//0b1010101 --> binary
-// 0b 0o 0x 
+var a = 0o11;
+var b = 0b1001;
+var c = 0x9;
+
+//result = 9
 
 var a = 17;
-a.toString(16);
+a.toString(8)
+//result = 21
+//Number to Number base use toString(Base number)
+```
 
-// number to base number use toString(baseNumber)
+## 5. Type String
 
-//-----------String-------------------
+**Initialize String**
 
-var a = "aaa";
-var a = 'aaa';
-var a = `aaa`;
-
-//change number to string 
-// 6 + ""
-
-// ``
-let num = 1;
-let num2 = 2;
-
-var a = `number = ${num} , number2 = ${num2}`;
-
-//ascii code 
+```javascript
+var a = "abc";
+var a = 'abc';
+var a = `abc`;
+```
+**Parse Number to String**
+```javascript
+6 + ""
+//or
+var num = 1;
+var num2 =2 ;
+var a = `number = ${num}, number2 = ${num2}`
+```
+**Ascii code**
+```javascript
 'a'.charCodeAt(0)
-//ascii code to String 
-String.fromCharCode(99)
+// char to ascii code
+
+String.fromCharCode(97)
+// result = 'a' ascii code to String
+```
+
+**Function of String**
+
+  * IndexOf and lastIndexOf 
+
+```javascript
+var a ='abcd#fg'
+a.indexOf('#')
+//result = 
+a.lastIndexOf('#')
+```
+
+``` javascript
 
 // function of String
 
@@ -225,35 +270,5 @@ var a  = 'abcdefg'
 a.slice(0,-1);
 a.slice(0, 5);
 a.trim();
-
-//----- function()-------
-
-function a(){
-
-
-}
-
-typeof a -----> function typex
-
-//format function 
-
-var a = function() { bbbbb = 2 } ;
-
-var a = () => { bbbb = 2};
-
-var a = new Function();
-var a = new Function('console.log("hello"));
-
-a();
-
-function a (){
-    //arguments[0]
-    
-}
-
-//format 
-
-
-
 ```
 
