@@ -20,14 +20,14 @@ console.log(b) //12
 
 **let** in scope
 ```javascript
-for(let i = 1 ; i <= 10 ; i++){
+for (let i = 1 ; i <= 10 ; i++) {
     console.log(i);
 }
 console.log(i); //error 
 ```
 **var** not in scope
 ```javascript
-for(var i = 1 ; i <= 10 ; i++){
+for (var i = 1 ; i <= 10 ; i++) {
     console.log(i);
 }
 console.log(i); // print i = 10; 
@@ -84,7 +84,7 @@ _use closure style_
 
 ```javascript
 new String()
-new Object
+new Object()
 new Array()
 // Can add properties to wrapper object
 
@@ -212,7 +212,12 @@ String.fromCharCode(97)
 
 **Function of String**
 
-  * IndexOf and lastIndexOf 
+  * indexOf and lastIndexOf 
+
+``` javascript
+indexOf(string);
+lastIndexOf(string);
+```
 
 ```javascript
 var a ='abcd#fg'
@@ -223,53 +228,147 @@ a.indexOf('#')
 a.lastIndexOf('#')
 //result = 4;
 ```
-**note:**  _If not found return -1_
+**Note:**  _If not found return -1_
 
-  * subString
+  * substring
 
+_First argument is startIndex and second argument is endIndex._
 
 ``` javascript
-
-// if not found retur -1 
-
-
-var a = 'hellodsadsad'
-a.subString(0,5);
-
-// **** start index , end index ****
-
-
-//parseInt , parseFloat;
-+'5.0000000000034' 
-
-//result ---> 5.0000000000034 
-
-
-// ~~
-
-// if not number 
- 
-//~~'2222222222222' --------> 22222222222
-//~~'dasdasda' ----------> 0
-
-// Split 
-
-var a = 'a,b,c,d,e,f';
-a.split(',')
-
-//result --- > array
-
-var a ='abcd'
-a.split(',');
-//result --- > ['abcd']
- 
-//join 
-
-//slice 
-
-var a  = 'abcdefg'
-a.slice(0,-1);
-a.slice(0, 5);
-a.trim();
+substring(firstIndex, secondIndex);
 ```
+
+```javascript
+var a = 'abcdefgh';
+
+a.substring(0, 5);
+//result = 'abcde';
+
+a.substring(5, 0);
+//result = 'abcde'; It equals a.substring(0, 5)
+
+a.substring(-1, 5);
+//result = 'abcde'; It equals a.substring(0, 5) because arguments haven't to negative number.
+
+a.substring(-1, -5);
+//result = ''; It equals a.substring(0,0)
+
+a.substring(-5, -1);
+//result = ''; It equals a.substring(0,0)
+```
+* slice
+
+_First argument is startIndex and second argument is endIndex._
+
+_It alike substring but argument can be negative number._
+
+```javascript
+slice(firstIndex);
+
+slice(firstIndex, secondIndex);
+```
+
+
+```javascript
+var a = 'abcdefgh';
+
+a.slice(2);
+//result = 'cdefgh'
+
+a.slice(-2);
+//result ='gh'
+
+a.slice(0, 5);
+//result = 'abcde';
+
+a.slice(5, 0);
+//result = '';
+
+a.slice(-1, 5);
+//result = '';
+
+a.slice(-1, -5);
+//result = '';
+
+a.slice(-5, -1);
+//result = 'defg';
+
+```
+**Note**
+```javascript
+0  1  2  3  4  5
+  a  b  c  d  e
+-5 -4 -3 -2 -1 0
+```
+_The slice command is able only to cut string from left to right_
+
+* split
+
+_split string to array_
+```javascript
+split(string);
+```
+```javascript
+var a = 'a,b,c,d,e,f';
+
+a.split(',');
+//result = ["a", "b", "c", "d", "e", "f"]
+
+a.split('');
+//result = ["a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"]
+
+a.split('#')
+//result = ["a,b,c,d,e,f"]
+
+```
+
+* join
+
+_join array to string_
+```javascript
+Array.join(separator)
+```
+``` javascript
+var a = ["a","b"]
+a.join()
+//result = 'a,b'
+
+a.join('*')
+//result = 'a*b' 
+```
+
+* trim
+
+_remove whitespace from both sides of a string_
+```javascript
+string.trim()
+```
+``` javascript
+var a = "hello     "
+a.trim()
+//result = "hello"
+```
+
+## Trips or Tricks
+```javascript
+//parseInt , parseFloat;
++'5.0000000000034'
+//result = 5.0000000000034; type number
+
+-'5.0000000000034'
+//result = -5.0000000000034; type number
+
++'helloworld'
+//result = NaN
+
+//How to solve +'not type number'
+// use ~~ for check
+~~'helloworld'
+//result = 0
+
+~~'5.0000000000034'
+//result = 5.0000000000034
+
+```
+
 
