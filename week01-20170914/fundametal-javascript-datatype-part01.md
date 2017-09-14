@@ -296,11 +296,36 @@ a.slice(-5, -1);
 ```
 **Note**
 ```javascript
-0  1  2  3  4  5
-  a  b  c  d  e
--5 -4 -3 -2 -1 0
+0  1  2  3  4  5  6  7
+  a  b  c  d  e  f  g
+-7 -6 -5 -4 -3 -2 -1 0
 ```
 _The slice command is able only to cut string from left to right_
+
+* substr
+
+_First argument is startIndex and second argument is length._
+
+```javascript
+substr(firstIndex, length);
+```
+```javascript
+var a = 'abcdefgh';
+a.substr(1, 5)
+//result = "bcdef"
+
+a.substr(-1, 5)
+//result = "h"
+
+a.substr(1, -5)
+//result = ""
+
+a.substr(-1,-5)
+//result = ""
+
+a.substr(-5,-1)
+//result = ""
+```
 
 * split
 
