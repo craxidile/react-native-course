@@ -314,7 +314,7 @@ var a = 'abcdefgh';
 a.substr(1, 5)
 //result = "bcdef"
 
-a.substr(-1, 5)
+a.substr(-1, 1)
 //result = "h"
 
 a.substr(1, -5)
