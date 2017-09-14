@@ -220,13 +220,13 @@ lastIndexOf(string);
 ```
 
 ```javascript
-var a ='abcd#fg'
+var a ='abcd#f#g#'
 
 a.indexOf('#')
 //result = 4;
 
 a.lastIndexOf('#')
-//result = 4;
+//result = 8;
 ```
 **Note:**  _If not found return -1_
 
