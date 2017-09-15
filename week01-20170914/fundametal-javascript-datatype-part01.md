@@ -12,7 +12,7 @@ a = 12; // The variable can be reassigned.
 console.log(a) // 12
 let b = 10;
 b = 12;// The variable can be reassigned.
-console.log(b) //12
+console.log(b) / /12
 
 
 ```
@@ -20,14 +20,14 @@ console.log(b) //12
 
 **let** in scope
 ```javascript
-for (let i = 1 ; i <= 10 ; i++) {
+for (let i=1; i<=10; i++) {
     console.log(i);
 }
 console.log(i); //error 
 ```
 **var** not in scope
 ```javascript
-for (var i = 1 ; i <= 10 ; i++) {
+for (var i=1; i<=10; i++) {
     console.log(i);
 }
 console.log(i); // print i = 10; 
@@ -41,9 +41,8 @@ const c = 100;
 c = 102; // Will produces an error.
 
 ```
-_In last peroid , there isn't let_ 
-
-_use closure style_
+_In the past, there isn't the keyword 'let'._
+_Scopes could be done using a __closure__._
 ```javascript
 (function(){
     var z = 10;
