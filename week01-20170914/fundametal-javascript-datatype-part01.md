@@ -193,9 +193,10 @@ var a = "abc";
 var a = 'abc';
 var a = `abc`;
 ```
-**Parse Number to String**
+**Convert numbers to strings**
 ```javascript
 6 + ""
+"" + 6
 //or
 var num = 1;
 var num2 =2 ;
