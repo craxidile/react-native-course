@@ -116,10 +116,11 @@ n.name = 'pond';
 console.log(n.name); // {name: "pond", [[PrimitiveValue]]: true}
 ```
 
-**Primitive value**
+**Primitive values**
 
 ```javascript
-var n = Boolean(true) 
+var n = Boolean(true);
+var n = true;
 // Can't add properties to a primitive value
 ```
 
