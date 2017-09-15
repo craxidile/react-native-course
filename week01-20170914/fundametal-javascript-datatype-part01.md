@@ -16,7 +16,7 @@ console.log(b) / /12
 
 
 ```
-**diffrence between var and let**
+**Difference between var and let**
 
 **let** in scope
 ```javascript
