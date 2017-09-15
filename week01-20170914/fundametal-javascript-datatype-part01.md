@@ -60,9 +60,9 @@ _Scopes could be made by using __closures__._
   * Function
 
 ## 3. Truthy and Falsy
-Truthy values act like __true__ when they appear in boolean expressions.
+Truthy values represent the value __true__ when they appear in boolean expressions.
 
-Falsy values act like __false__ when they appear in boolean expressions.
+Falsy values represent the value __false__ when they appear in boolean expressions.
 
 **undefined** is falsy
 
@@ -109,7 +109,7 @@ var n = Boolean(true)
 ## 4. Type: Number
 
 ```javascript
-var m  = Number(5);
+var m = Number(5);
 var m = 5.000;
 // integer
 
@@ -314,7 +314,7 @@ a.slice(-5, -1);
 -7 -6 -5 -4 -3 -2 -1 0
 // Right indexes
 ```
-_**slice** is able only to cut a string from left to right_
+_**slice** is able to cut a string from left to right_only.
 
 * substr
 
