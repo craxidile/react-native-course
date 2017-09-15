@@ -380,7 +380,7 @@ a.trim()
 //result = "hello"
 ```
 
-## Converting strings to numbers
+## Shorthands for converting strings to numbers
 ```javascript
 // parseInt
 parseInt('5.0000000000034')
