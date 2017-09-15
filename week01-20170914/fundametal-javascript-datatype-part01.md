@@ -275,25 +275,26 @@ slice(firstIndex, secondIndex);
 var a = 'abcdefgh';
 
 a.slice(2);
-//result = 'cdefgh'
+// result = 'cdefgh'
 
 a.slice(-2);
-//result ='fg'
+// result ='fg'
 
 a.slice(0, 5);
-//result = 'abcde';
+// result = 'abcde';
 
 a.slice(5, 0);
-//result = '';
+// result = '';
+// It couldn't make its way to the left.
 
 a.slice(-1, 5);
-//result = '';
+// result = '';
 
 a.slice(-1, -5);
-//result = '';
+// result = '';
 
 a.slice(-5, -1);
-//result = 'cdef';
+// result = 'cdef';
 
 ```
 **Note**
