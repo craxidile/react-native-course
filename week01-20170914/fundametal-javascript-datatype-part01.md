@@ -45,7 +45,7 @@ c = 102; // Will produce an error.
 _In the past, there isn't the keyword 'let'._
 _Scopes could be made by using __closures__._
 ```javascript
-(function(){
+(function () {
   var z = 10;
 })();
 ```
