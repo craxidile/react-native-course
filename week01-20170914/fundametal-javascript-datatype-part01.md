@@ -163,7 +163,7 @@ _Infinity + Infinity = Infinity_
 
 _Infinity - Infinity = NaN_
 
-**NOTES 04: Decimal and Base number**
+**_NOTE 04_: Decimal and Base number**
 
 ```javascript
 var a = 5;
