@@ -50,7 +50,7 @@ _Scopes could be made by using __closures__._
 })();
 ```
 
-## 2. Types in javascript
+## 2. Types in JavaScript
 
   * Undefined
   * Boolean (true|false)
