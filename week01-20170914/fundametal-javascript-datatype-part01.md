@@ -58,7 +58,10 @@ _Scopes could be made by using __closures__._
   * Object
   * Function
 
-## 3. truthy and falsy
+## 3. Truthy and Falsy
+Truthy values act like __true__ when they appear in boolean expressions.
+
+Falsy values act like __true__ when they appear in boolean expressions.
 
 **undefined** is falsy
 
