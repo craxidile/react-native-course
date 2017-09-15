@@ -81,9 +81,12 @@ _Scopes could be made by using __closures__._
 **Wrapper object**
 
 ```javascript
+new Boolean()
+new Number()
 new String()
 new Object()
 new Array()
+new Function()
 // Can add properties to wrapper object
 
 //Example
