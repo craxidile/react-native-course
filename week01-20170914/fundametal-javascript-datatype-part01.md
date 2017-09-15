@@ -22,14 +22,14 @@ console.log(b) // 12
 **let** in scope
 ```javascript
 for (let i=1; i<=10; i++) {
-    console.log(i);
+  console.log(i);
 }
 console.log(i); // error 
 ```
 **var** not in scope
 ```javascript
 for (var i=1; i<=10; i++) {
-    console.log(i);
+  console.log(i);
 }
 console.log(i); // print i = 10; 
 ```
@@ -46,7 +46,7 @@ _In the past, there isn't the keyword 'let'._
 _Scopes could be made by using __closures__._
 ```javascript
 (function(){
-    var z = 10;
+  var z = 10;
 })();
 ```
 
