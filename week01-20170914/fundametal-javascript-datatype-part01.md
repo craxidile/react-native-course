@@ -42,7 +42,7 @@ c = 102; // Will produces an error.
 
 ```
 _In the past, there isn't the keyword 'let'._
-_Scopes could be done using a __closure__._
+_Scopes could be made using a __closure__._
 ```javascript
 (function(){
     var z = 10;
