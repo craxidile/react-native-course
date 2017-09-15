@@ -129,7 +129,7 @@ Number.MAX_SAFE_INTEGER // 9007199254740991
 
 _integer + float = float_
 
-_number + String = String_
+_number + string = string_
 
 _number + undefined = NaN_
 
@@ -137,9 +137,9 @@ _number + true = number + 1_
 
 _number + false = number + 0_
 
-_number + function = String_
+_number + function = string_
 
-_number + Object = String_
+_number + object = string_
 
 **_NOTE 02_: NaN (Not a Number) Properties**
 
