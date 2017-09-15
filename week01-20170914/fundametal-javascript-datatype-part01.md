@@ -316,19 +316,19 @@ substr(firstIndex, length);
 ```javascript
 var a = 'abcdefgh';
 a.substr(1, 5)
-//result = "bcdef"
+// result = "bcdef"
 
 a.substr(-1, 1)
-//result = "h"
+// result = "h"
 
 a.substr(1, -5)
-//result = ""
+// result = ""
 
 a.substr(-1,-5)
-//result = ""
+// result = ""
 
 a.substr(-5,-1)
-//result = ""
+// result = ""
 ```
 
 * split
