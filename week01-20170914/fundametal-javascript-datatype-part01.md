@@ -1,9 +1,10 @@
 # Fundamental JavaScript: Data Types Pt. 01
 
 ## 1. Var / Let / Const
-**var**: Create a variable without consideration of scopes wrapping around it
 
-**let**: Create a variable with consideration of scopes wrapping around it
+**let**: Create a variable in consideration of scopes wrapping around it
+
+**var**: Scopes are not considered.
 
 ``` javascript
 
