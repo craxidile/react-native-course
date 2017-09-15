@@ -78,7 +78,7 @@ Falsy values represent the value __false__ when they appear in boolean expressio
 
 **NaN** is falsy
 
-**other numbers** are truthy
+**Other numbers** are truthy
 
 **Empty String** is falsy
 
