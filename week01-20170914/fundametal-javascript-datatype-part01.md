@@ -46,7 +46,6 @@ _Scopes could be made using a __closure__._
 ```javascript
 (function(){
     var z = 10;
-
 })();
 ```
 
