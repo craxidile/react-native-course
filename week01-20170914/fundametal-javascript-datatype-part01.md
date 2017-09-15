@@ -51,14 +51,14 @@ _use closure style_
 })();
 ```
 
-## 2. Type of javascript
+## 2. Types in javascript
 
-  * undefined
-  * boolean(true,false)
-  * number
-  * string
-  * object {}
-  * function
+  * Undefined
+  * Boolean (true|false)
+  * Number
+  * String
+  * Object
+  * Function
 
 ## 3. truthy and falsy
 
@@ -72,7 +72,7 @@ _use closure style_
 
 **Empty String** is falsy
 
-**String with character** is truthy
+**String with characters** is truthy
 
 **true** is truthy
 
@@ -91,17 +91,17 @@ new Array()
 //Example
 var n = new Boolean(true);
 n.name = 'pond';
-console.log(n.name); //pond
+console.log(n.name); //{name: "pond", [[PrimitiveValue]]: true}
 ```
 
-**Primitive type**
+**Primitive value**
 
 ```javascript
 var n = Boolean() 
 // Can't add properties to primitive type
 ```
 
-## 4. Type Number
+## 4. Type: Number
 
 ```javascript
 var m  = Number(5);
@@ -120,7 +120,7 @@ Number.MAX_VALUE //1.7976931348623157e+308
 Number.MAX_SAFE_INTEGER //9007199254740991
 ```
 
-**NOTES 01:  Number Operation with different types**
+**_Note 01_:  Number Operation with different types**
 
 _integer + float = float_
 
@@ -136,7 +136,7 @@ _number + function = String_
 
 _number + Object = String_
 
-**NOTES 02: NaN**
+**_NOTE 02_: NaN (Not a Number) Properties**
 
 _NaN is type error_
 
@@ -148,7 +148,7 @@ NaN == NaN // result = false
 ```
 _*** Solve by use isNaN(m)_
 
-**NOTES 03: Infinity**
+**_NOTE 03_: Infinity**
 
 ```javascript
 var q = 1 / 0;
@@ -180,11 +180,12 @@ var c = 0x9;
 
 var a = 17;
 a.toString(8)
-//result = 21
-//Number to Number base use toString(Base number)
+// result = 21
+// To change a decimal Number to Number with different base
+// Use -> toString(BASE)
 ```
 
-## 5. Type String
+## 5. Type: String
 
 **Initialize String**
 
@@ -201,13 +202,13 @@ var num = 1;
 var num2 =2 ;
 var a = `number = ${num}, number2 = ${num2}`
 ```
-**Ascii code**
+**ASCII code**
 ```javascript
 'a'.charCodeAt(0)
-// char to ascii code
+// 97 (Single letter to an ASCII code)
 
 String.fromCharCode(97)
-// result = 'a' ascii code to String
+// result = 'a' (The other way around)
 ```
 
 **Function of String**
@@ -228,39 +229,42 @@ a.indexOf('#')
 a.lastIndexOf('#')
 //result = 8;
 ```
-**Note:**  _If not found return -1_
+**NOTE:**  _If the text is not found, it will return -1._
 
   * substring
 
-_First argument is startIndex and second argument is endIndex._
+_The first argument is the starting index._
+_The second one is the ending index._
 
 ``` javascript
-substring(firstIndex, secondIndex);
+substring(startIndex, endIndex);
 ```
 
 ```javascript
 var a = 'abcdefgh';
 
 a.substring(0, 5);
-//result = 'abcde';
+// result = 'abcde';
 
 a.substring(5, 0);
-//result = 'abcde'; It equals a.substring(0, 5)
+// result = 'abcde'; It equals to a.substring(0, 5)
 
 a.substring(-1, 5);
-//result = 'abcde'; It equals a.substring(0, 5) because arguments haven't to negative number.
+// result = 'abcde'; It equals to a.substring(0, 5)
+// JavaScript would automatically convert from negative numbers to zero.
 
 a.substring(-1, -5);
-//result = ''; It equals a.substring(0,0)
+// result = ''; It equals a.substring(0,0)
 
 a.substring(-5, -1);
-//result = ''; It equals a.substring(0,0)
+// result = ''; It equals a.substring(0,0)
 ```
 * slice
 
-_First argument is startIndex and second argument is endIndex._
+_The first argument is the starting index._
+_The second one is the ending index._
 
-_It alike substring but argument can be negative number._
+_It's similar to **substring** but arguments managed to be negative number._
 
 ```javascript
 slice(firstIndex);
@@ -300,11 +304,12 @@ a.slice(-5, -1);
   a  b  c  d  e  f  g
 -7 -6 -5 -4 -3 -2 -1 0
 ```
-_The slice command is able only to cut string from left to right_
+_**slice** is able only to cut a string from left to right_
 
 * substr
 
-_First argument is startIndex and second argument is length._
+_The first argument is the starting index._
+_The second one is the length._
 
 ```javascript
 substr(firstIndex, length);
@@ -329,7 +334,7 @@ a.substr(-5,-1)
 
 * split
 
-_split string to array_
+_split a string to an array_
 ```javascript
 split(string);
 ```
@@ -349,7 +354,7 @@ a.split('#')
 
 * join
 
-_join array to string_
+_join an array into a string_
 ```javascript
 Array.join(separator)
 ```
@@ -364,7 +369,7 @@ a.join('*')
 
 * trim
 
-_remove whitespace from both sides of a string_
+_remove whitespaces from both sides of a string_
 ```javascript
 string.trim()
 ```
@@ -374,20 +379,25 @@ a.trim()
 //result = "hello"
 ```
 
-## Tips and Tricks
+## Converting strings to numbers
 ```javascript
-//parseInt , parseFloat;
+//parseInt
+parseInt('5.0000000000034')
+//result = 5; type = number
+
+//parseFloat
+parseFloat('5.0000000000034')
 +'5.0000000000034'
-//result = 5.0000000000034; type number
+//result = 5.0000000000034; type = number
 
 -'5.0000000000034'
-//result = -5.0000000000034; type number
+//result = -5.0000000000034; type = number
 
 +'helloworld'
 //result = NaN
 
-//How to solve +'not type number'
-// use ~~ for check
+// While '+' operator could produce a NaN value,
+// we could use '~~' instead.
 ~~'helloworld'
 //result = 0
 
