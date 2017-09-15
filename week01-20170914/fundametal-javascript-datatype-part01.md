@@ -341,13 +341,13 @@ split(string);
 var a = 'a,b,c,d,e,f';
 
 a.split(',');
-//result = ["a", "b", "c", "d", "e", "f"]
+// result = ["a", "b", "c", "d", "e", "f"]
 
 a.split('');
-//result = ["a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"]
+// result = ["a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"]
 
 a.split('#')
-//result = ["a,b,c,d,e,f"]
+// result = ["a,b,c,d,e,f"]
 
 ```
 
@@ -380,28 +380,28 @@ a.trim()
 
 ## Converting strings to numbers
 ```javascript
-//parseInt
+// parseInt
 parseInt('5.0000000000034')
-//result = 5; type = number
+// result = 5; type = number
 
-//parseFloat
+// parseFloat
 parseFloat('5.0000000000034')
 +'5.0000000000034'
-//result = 5.0000000000034; type = number
+// result = 5.0000000000034; type = number
 
 -'5.0000000000034'
-//result = -5.0000000000034; type = number
+// result = -5.0000000000034; type = number
 
 +'helloworld'
-//result = NaN
+// result = NaN
 
 // As '+' operator could produce a NaN value,
 // we could use '~~' instead.
 ~~'helloworld'
-//result = 0
+// result = 0
 
 ~~'5.0000000000034'
-//result = 5.0000000000034
+// result = 5.0000000000034
 
 ```
 
