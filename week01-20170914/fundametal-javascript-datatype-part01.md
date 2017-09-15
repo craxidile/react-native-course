@@ -19,15 +19,23 @@ console.log(b) // 12
 ```
 **Difference between var and let**
 
-**let** in scope
+**let** can be seen only in scopes
 ```javascript
+{
+  let i=1;
+}
+
 for (let i=1; i<=10; i++) {
   console.log(i);
 }
 console.log(i); // error 
 ```
-**var** not in scope
+**var** is everywhere
 ```javascript
+{
+  var i=1;  
+}
+
 for (var i=1; i<=10; i++) {
   console.log(i);
 }
