@@ -178,9 +178,9 @@ a.toFixed(2);
 
 // result = 2.00
 
-var a = 0o11;
-var b = 0b1001;
-var c = 0x9;
+var a = 0o11; // Octal
+var b = 0b1001; // Binary
+var c = 0x9; // Hexadecimal
 
 // result = 9
 
