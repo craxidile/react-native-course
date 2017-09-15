@@ -99,7 +99,7 @@ you can use an operator **!!**.
 !!NaN // result = false
 ```
    
-##4. Wrapper objects
+## 4. Wrapper objects
 
 ```javascript
 new Boolean()
@@ -411,7 +411,7 @@ a.trim()
 //result = "hello"
 ```
 
-## 6. Shorthands for converting strings to numbers
+## 6. String-to-number conversion shorthands
 ```javascript
 // parseInt
 parseInt('5.0000000000034')
