@@ -23,7 +23,7 @@ console.log(b) // 12
 for (let i=1; i<=10; i++) {
     console.log(i);
 }
-console.log(i); //error 
+console.log(i); // error 
 ```
 **var** not in scope
 ```javascript
@@ -158,7 +158,7 @@ _*** Solve by use isNaN(m)_
 ```javascript
 var q = 1/0;
 
-//q = Infinity, typeof q = number
+// q = Infinity, typeof q = number
 
 var q = 1/0.000000000001;
 
@@ -369,7 +369,7 @@ Array.join(separator)
 ``` javascript
 var a = ["a","b"]
 a.join()
-//result = 'a,b'
+//result = 'ab'
 
 a.join('*')
 //result = 'a*b' 
@@ -404,8 +404,8 @@ parseFloat('5.0000000000034')
 +'helloworld'
 // result = NaN
 
-// As '+' operator could produce a NaN value,
-// we could use '~~' instead.
+// As '+' operator can produce a NaN value,
+// we are able to use '~~' instead.
 ~~'helloworld'
 // result = 0
 
