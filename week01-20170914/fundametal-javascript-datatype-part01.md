@@ -90,8 +90,8 @@ Falsy values represent the value __false__ when they appear in boolean expressio
 
 **null** is falsy
 
-If you are not sure whether a value is **truthy** or **falsy**,
-you can use an operator **!!**.
+_If you are not sure whether a value is **truthy** or **falsy**,
+you can use an operator **!!**_.
 
 ```javascript
 !!0 // result = false
