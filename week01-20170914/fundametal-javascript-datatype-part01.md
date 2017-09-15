@@ -301,6 +301,7 @@ a.slice(-5, -1);
 ```
 **Note**
 ```javascript
+// ---> Slice would only make its way to the right.
 0  1  2  3  4  5  6  7
   a  b  c  d  e  f  g
 -7 -6 -5 -4 -3 -2 -1 0
