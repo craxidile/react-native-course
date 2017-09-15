@@ -314,7 +314,7 @@ a.slice(-5, -1);
 -7 -6 -5 -4 -3 -2 -1 0
 // Right indexes
 ```
-_**slice** is able to cut a string from left to right_only.
+_**slice** is able to cut a string from left to right only._
 
 * substr
 
