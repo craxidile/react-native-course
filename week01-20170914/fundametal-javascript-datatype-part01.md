@@ -39,7 +39,7 @@ console.log(i); // print i = 10;
 ``` javascript
 
 const c = 100;
-c = 102; // Will produces an error.
+c = 102; // Will produce an error.
 
 ```
 _In the past, there isn't the keyword 'let'._
@@ -261,10 +261,10 @@ a.substring(-1, 5);
 // JavaScript would automatically convert from negative numbers to zero.
 
 a.substring(-1, -5);
-// result = ''; It equals a.substring(0,0)
+// result = ''; It equals to a.substring(0,0)
 
 a.substring(-5, -1);
-// result = ''; It equals a.substring(0,0)
+// result = ''; It equals to a.substring(0,0)
 ```
 * slice
 
@@ -308,10 +308,11 @@ a.slice(-5, -1);
 ```
 **Note**
 ```javascript
-// ---> Slice would only make its way to the right.
+// Left indexes
 0  1  2  3  4  5  6  7
   a  b  c  d  e  f  g
 -7 -6 -5 -4 -3 -2 -1 0
+// Right indexes
 ```
 _**slice** is able only to cut a string from left to right_
 
