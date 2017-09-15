@@ -152,7 +152,7 @@ NaN == false // result = false
 NaN == NaN // result = false
 NaN === NaN // result = false
 ```
-_*** Solve by use isNaN(m)_
+_*** Can be solved using isNaN(m)_
 
 **_NOTE 03_: Infinity**
 
