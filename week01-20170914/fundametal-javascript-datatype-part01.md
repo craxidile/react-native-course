@@ -90,14 +90,14 @@ new Array()
 //Example
 var n = new Boolean(true);
 n.name = 'pond';
-console.log(n.name); //{name: "pond", [[PrimitiveValue]]: true}
+console.log(n.name); // {name: "pond", [[PrimitiveValue]]: true}
 ```
 
 **Primitive value**
 
 ```javascript
 var n = Boolean() 
-// Can't add properties to primitive type
+// Can't add properties to a primitive value
 ```
 
 ## 4. Type: Number
@@ -112,11 +112,11 @@ var m = 5.001;
 ```
 **Limit of Number**
 ```javascript
-Number.MAX_VALUE //1.7976931348623157e+308
+Number.MAX_VALUE // 1.7976931348623157e+308
 ```
 **Safe Number**
 ```javascript
-Number.MAX_SAFE_INTEGER //9007199254740991
+Number.MAX_SAFE_INTEGER // 9007199254740991
 ```
 
 **_Note 01_:  Number Operation with different types**
@@ -152,7 +152,7 @@ _*** Solve by use isNaN(m)_
 ```javascript
 var q = 1 / 0;
 
-//q = Infinity , typeof q = number
+//q = Infinity, typeof q = number
 
 var q = 1/0.000000000001;
 
@@ -169,13 +169,13 @@ _Infinity - Infinity = NaN_
 var a = 5;
 a.toFixed(2);
 
-//result = 2.00
+// result = 2.00
 
 var a = 0o11;
 var b = 0b1001;
 var c = 0x9;
 
-//result = 9
+// result = 9
 
 var a = 17;
 a.toString(8)
