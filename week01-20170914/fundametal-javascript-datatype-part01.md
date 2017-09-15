@@ -143,13 +143,14 @@ _NaN is falsy_
 ```javascript
 NaN == false // result = false
 NaN == NaN // result = false
+NaN === NaN // result = false
 ```
 _*** Solve by use isNaN(m)_
 
 **_NOTE 03_: Infinity**
 
 ```javascript
-var q = 1 / 0;
+var q = 1/0;
 
 //q = Infinity, typeof q = number
 
