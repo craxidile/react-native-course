@@ -11,7 +11,7 @@ var a = 10;
 a = 12; // The variable can be reassigned.
 console.log(a) // 12
 let b = 10;
-b = 12;// The variable can be reassigned.
+b = 12; // The variable can be reassigned.
 console.log(b) / /12
 
 
