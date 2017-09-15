@@ -206,7 +206,7 @@ var a = `abc`;
 "" + 6
 //or
 var num = 1;
-var num2 =2 ;
+var num2 = 2 ;
 var a = `number = ${num}, number2 = ${num2}`
 ```
 **ASCII code**
