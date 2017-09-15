@@ -89,8 +89,17 @@ Falsy values represent the value __false__ when they appear in boolean expressio
 **false** is falsy
 
 **null** is falsy
+
+If you are not sure whether a value is **truthy** or **falsy**,
+you can use an operator **!!**.
+
+```javascript
+!!0 // result = false
+!!20 // result = true
+!!NaN // result = false
+```
    
-**Wrapper object**
+##4. Wrapper objects
 
 ```javascript
 new Boolean()
@@ -114,7 +123,7 @@ var n = Boolean(true)
 // Can't add properties to a primitive value
 ```
 
-## 4. Type: Number
+## 5. Type: Number
 
 ```javascript
 var m = Number(5);
@@ -174,6 +183,8 @@ var q = 1/0.000000000001;
 // q isn't Infinity 
 ```
 
+_Infinity + number = Infinity_
+
 _Infinity + Infinity = Infinity_
 
 _Infinity - Infinity = NaN_
@@ -199,7 +210,7 @@ a.toString(8)
 // Use -> toString(BASE)
 ```
 
-## 5. Type: String
+## 6. Type: String
 
 **Initialize String**
 
@@ -207,6 +218,9 @@ a.toString(8)
 var a = "abc";
 var a = 'abc';
 var a = `abc`;
+var a = `a
+b
+c`
 ```
 **Convert numbers to strings**
 ```javascript
@@ -226,7 +240,7 @@ String.fromCharCode(97)
 // result = 'a' (The other way around)
 ```
 
-**Function of String**
+**String functions**
 
   * indexOf and lastIndexOf 
 
@@ -397,7 +411,7 @@ a.trim()
 //result = "hello"
 ```
 
-## Shorthands for converting strings to numbers
+## 6. Shorthands for converting strings to numbers
 ```javascript
 // parseInt
 parseInt('5.0000000000034')
