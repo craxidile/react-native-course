@@ -396,7 +396,7 @@ parseFloat('5.0000000000034')
 +'helloworld'
 //result = NaN
 
-// While '+' operator could produce a NaN value,
+// As '+' operator could produce a NaN value,
 // we could use '~~' instead.
 ~~'helloworld'
 //result = 0
