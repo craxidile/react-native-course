@@ -403,8 +403,11 @@ function a (name, i) {
 a('pond',1)
 a.call(null,'pond',1)
 a.apply(null,['pond',1]);
-
 // result Hello pond 1
+
+// document.images has not forEach function () 
+Array.prototype.forEach.apply(document.images, [item => console.log(item)] );
+Array.prototype.forEach.call(document.images, item => console.log(item));
 ```
 
 **note**
@@ -461,38 +464,38 @@ for (let i = 0; i< keys.length; i++){
 
 
 
-//add property
+// add property
 a.age = 100
 
-//delete property
+// delete property
 delete a.age;
 
 ```
 
-**get set**
+**getter & setter**
 ```javascript
+
 var a = {
     get hello(){
         return 'My name is '+ this.name;
-    }
-    
+    }    
 };
 
 a.name = 'pond';
 a.hello
+// result = "My name is pond"
 
 a.name = 'best';
 a.hello
-
-
+// result = "My name is best"
 ```
+
 
 **function in object**
 ```javascript
 var a = {
     a: function(){
-            console.log('hello' + this.name)
-
+        console.log('hello' + this.name)
     }
 }; 
 
@@ -517,16 +520,19 @@ a === b;
 
 
 //cloning
+
+//first use Object.assign()
 b = Object.assign({}, a);
 
 a === b
 //false
 
-//Spread operator
-var a = {name: 'pond'}
 
+//second use spread operator
+var a = {name: 'pond'}
 var b = {...a};
 
+// can add properties to cloning object.
 var b = {...a, age: 100};
 
 // {name : 'pond', age: 100}
@@ -540,7 +546,6 @@ var a = {
     toString: function(){
         return 'A';
     }
-
 }
 
 a + "";
@@ -548,9 +553,12 @@ a + "";
 
 ```
 
+**JSON to string & string to JSON**
 ```javascript
 var a = {name : 'pond'};
 JSON.stringify(a);
+// result "{"name":"pond"}"
+
 
 var a = {
     get a() {
@@ -558,25 +566,30 @@ var a = {
     }
 }
 
-Json.stringify(a)
+JSON.stringify(a)
+// result "{"a":"A"}"
+
 
 var a = {
-    get a() {
-        return 'A' + this.name
+    get a () {
+        return 'A ' + this.name
     }
 }
 
-Json.stringify(a)
+JSON.stringify(a)
+// result "{"a":"A undefined"}"
+
 a.name = 'pond'
+JSON.stringify(a)
+// result
+// "{"a":"A pond","name":"pond"}"
 
-Json.stringify(a)
 
-
-JSON.parse('{a:"hello"}')
+JSON.parse('{"a": "hello"}')
+//result
 {a: "hello"}
 
 ```
-
 
 ```javascript
 document.documentElement.style.background = 'red'
@@ -589,149 +602,181 @@ window.alert('yo');
 
 
 ## 3. Arrays
+_array is truthy_
 
+
+**declare array**
 ```javascript
-var a = [1,2,3,4,5,6];
+var a = [1, 2, 3, 4, 5, 6];
 
-new Array(1,2,3)
-
-
-//size
-a.length
-
-//push
-a.push(7)
-
-//pop
-a.pop();
-
+new Array(1, 2, 3)
 ```
 
-**change**
+**mutable**
 ```javascript
 
-//push last
+var a = [1, 2, 3, 4, 5, 6];
+// insert an item at the end position of the array
 a.push(7)
-//pop last
+// remove an item at the end position of the array
 a.pop()
 
 
 a.shift()
-// pop first
+// insert an item at the begining position of the array
 a.unshift(1)
-//push first
+// remove an item at the begining position of the array
 
-
-```
-
-**unchange**
-
-```javascript
-a.concat([7])
-
-```
-
-**unchange**
-```javascript
-a.forEach((item,index,array) => {console.log(index, item);})
-// forEach not return array
-
-map // change item to new item
-a.map(item=> item + '');
-// same size and change value in array , unchange first array
-a.map(item=> 'hello '+item);
-// able to chain 
-
-a.map(item => item*item).forEach(item => console.log('*', item));
-
-filter // filter array in condition , able to chain
-
-a = [1,2,3,4,5,6]
-a.filter(item => item % 2 === 1);
-a.filter(item = > { let a = item % 2 ===1; return a;});
-
-var a = [null, 'a', 'b', null];
-a.filter(item => !!item);
-
-
-//sort //change array
-var a = [2,4,1,9,3]
+var a = [2, 4, 1, 9, 3]
 a.sort();
+// result [1, 2, 3, 4, 9]
 
-//Sperad copy array and sort
-var a = [2,4,1,9,3]
+// Spread copy array and sort
+var a = [2, 4, 1, 9, 3]
 [...a].sort();
+// result [1, 2, 3, 4, 9]
+
 
 // input condition
-[...a].sort((i1,i2) => i1-i2 );
-[...a].sort((i1,i2) => i2-i1 );
+[...a].sort((i1, i2) => i1 - i2 );
+// result [1, 2, 3, 4, 9]
+[...a].sort((i1, i2) => i2 - i1 );
+// result [9, 4, 3, 2, 1]
 
 
 //not care sign
-var a = [-2,-4,-1,-9,-3,2,4,1,9,3];
-[...a].sort((i1,i2) => Math.abs(i1)-Math.abs(i2))
+var a = [-2, -4, -1, -9, -3, 2, 4, 1, 9, 3];
+[...a].sort((i1, i2) => Math.abs(i1) - Math.abs(i2))
+// result [-1, 1, -2, 2, -3, 3, -4, 4, -9, 9]
 
+//splice
 
-//slice , unchange array
-a.slice(0,1)
+var a = [1, 2, 3, 4, 5, 6];
 
-a.slice(0,-1)
-
-
-//splice , change array , get , get out item in array
-
-//get out item
+// remove item from original array and return them
 a.splice(0, 1)
+// return [1]
+// original array [2, 3, 4, 5, 6]
 
-//input item
+var a = [1, 2, 3, 4, 5, 6];
+
+// insert item
 a.splice(4, 0, 9999)
+// origina array [1, 2, 3, 4, 9999, 5, 6]
 
-//indexOf
-a.indexOf(-9);
+```
 
-a = [{name: 'a'},{name: 'b'}]
+**immutable**
+
+_original array isn't mutated_
+
+_array function , if return array when use , can chain._
+
+```javascript
+
+var a = [1, 2, 3, 4, 5, 6];
+a.concat([7])
+// return [1, 2, 3, 4, 5, 6, 7]
+// original array isn't mutated  
+
+
+a.forEach((item, index, array) => {console.log(index, item);})
+// forEach not return array
+
+
+map // modified item in array 
+a.map(item => item + '');
+// same size and change value in array , unchange first array
+a.map(item => 'hello '+item);
+// can chain 
+a.map(item => item * item).forEach(item => console.log('*', item));
+// result
+// * 1
+// * 4
+// * 9
+// * 16
+// * 25
+// * 36
+
+
+
+filter // filter array in condition
+
+a = [1, 2, 3, 4, 5, 6]
+a.filter(item => item % 2 === 1);
+// result [1, 3, 5]
+
+a.filter(item => { let a = item % 2 === 1; return a;});
+// result [1, 3, 5]
+
+var a = [null, 'a', 'b', null];
+a.filter(item => !!item);
+// result ["a", "b"]
+
+
+// slice
+a.slice(0, 1)
+// return [1]
+
+a.slice(0, -1)
+// return [1, 2, 3, 4, 5]
+
+
+// indexOf
+a.indexOf(6);
+// return 1
+
+a = [{name: 'a'}, {name: 'b'}]
 a.indexOf({name: 'b'})
 //not found object
+// return -1
 
-//use filter
+// use indexOf with filter for find object in array
 
 a.indexOf(a.filter(item => item.name === 'b')[0]);
+// return 1
 
 
 // every
-
-a =  [1,2,3,4,5,6]
+a =  [1, 2, 3, 4, 5, 6]
 
 a.every(item => item > 0);
-//true
+// result true
 
-a = [1,2,3,4,5,6,-1]
+a = [1, 2, 3, 4, 5, 6, -1]
 a.every(item => item > 0);
-//false
+// result false
 
 
 // some
 
 a.some(item => item < 0);
-//true
+// result true
 
-a.some(item => item ==0);
-//false
-
-
-
-a = [1,2,3,4,5,6];
-
-[1,2,3,4,5,6].push(9998, 9997 ,9996)
-[1,2,3,4,5,6].unshift(9998, 9997 ,9996)
+a.some(item => item === 0);
+// result false
 
 
-[1,2,3,4,5,6].concat([9998,9997,9996])
 
-var a = [1,2,3,4,5,6];
+var a = [1, 2, 3, 4, 5, 6];
+a.push(9998, 9997 ,9996)
+// result a = [1, 2, 3, 4, 5, 6, 9998, 9997, 9996]
 
-Array.prototype.push.applay(a,[9998,9997,9996]);
+var a = [1, 2, 3, 4, 5, 6];
+a.unshift(9998, 9997 ,9996)
+// result a = [9998, 9997, 9996, 1, 2, 3, 4, 5, 6]
+
+var a = [1, 2, 3, 4, 5, 6];
+a.concat([9998, 9997, 9996])
+// return [1, 2, 3, 4, 5, 6, 9998, 9997, 9996]
+// original array = [1, 2, 3, 4, 5, 6]
+
+var a = [1, 2, 3, 4, 5, 6];
+Array.prototype.push.apply(a, [9998, 9997, 9996]);
+// original array = [1, 2, 3, 4, 5, 6, 9998, 9997, 9996]
 ```
 
-_array is truthy_
+Note
 
+* Array reduce
+* Destructuring
