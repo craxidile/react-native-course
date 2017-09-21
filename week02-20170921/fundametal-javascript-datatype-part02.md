@@ -627,6 +627,8 @@ a.shift()
 a.unshift(1)
 // remove an item at the begining position of the array
 
+sort
+
 var a = [2, 4, 1, 9, 3]
 a.sort();
 // result [1, 2, 3, 4, 9]
@@ -649,7 +651,7 @@ var a = [-2, -4, -1, -9, -3, 2, 4, 1, 9, 3];
 [...a].sort((i1, i2) => Math.abs(i1) - Math.abs(i2))
 // result [-1, 1, -2, 2, -3, 3, -4, 4, -9, 9]
 
-//splice
+splice
 
 var a = [1, 2, 3, 4, 5, 6];
 
@@ -714,7 +716,7 @@ a.filter(item => !!item);
 // result ["a", "b"]
 
 
-// slice
+slice
 a.slice(0, 1)
 // return [1]
 
@@ -722,7 +724,7 @@ a.slice(0, -1)
 // return [1, 2, 3, 4, 5]
 
 
-// indexOf
+indexOf
 a.indexOf(6);
 // return 1
 
@@ -737,7 +739,8 @@ a.indexOf(a.filter(item => item.name === 'b')[0]);
 // return 1
 
 
-// every
+every
+
 a =  [1, 2, 3, 4, 5, 6]
 
 a.every(item => item > 0);
@@ -748,7 +751,7 @@ a.every(item => item > 0);
 // result false
 
 
-// some
+some
 
 a.some(item => item < 0);
 // result true
