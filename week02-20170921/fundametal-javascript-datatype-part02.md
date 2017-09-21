@@ -821,7 +821,53 @@ var printThis;
 
 ```
 
+### Tranform below code to new code that maximum 450 characters.
 
+```javascript
+var array = [1, 'hello', null, {}, 2, '', 3, 8, 30, [], {}, 7];
+
+var originalObject = {};
+for(let i = 0 ; i < array.length ; i++){
+    originalObject[i] = array[i];
+}
+
+var newObject = {};
+
+Object.keys(originalObject).forEach(function(element,index) {
+      newObject[index] = element + Object.values(originalObject)[index]
+});
+
+var arrays = [];
+
+
+for(let i  = 0 ; i < Object.keys(newObject).length ;i++){
+    if(i % 2 == 0){
+        arrays.push(Object.values(newObject)[i]);
+    }
+
+}
+
+var newString = "";
+for(let i = 0 ; i < arrays.length;i++){
+    newString = newString + arrays[i];
+
+}
+
+var result = "";
+
+for(let i = 0 ;i<newString.length;i++){
+    if(newString[i] == 'n'){
+        result = result + newString[i];
+    }else if(newString[i]=='u'){
+        result = result + newString[i];
+
+    }else if(newString[i]=='l'){
+        result = result + newString[i];
+    }
+}
+
+console.log(result);
+```
 Note
 
 * Array reduce
