@@ -779,7 +779,51 @@ Array.prototype.push.apply(a, [9998, 9997, 9996]);
 // original array = [1, 2, 3, 4, 5, 6, 9998, 9997, 9996]
 ```
 
+# Quiz
+
+### Tranform below code to new code that maximum 450 characters.
+
+```javascript
+var array = [1, 'hello', null, new Date(), 2, '', 3, 8, 30, [], {}, 7];
+var newArray = [];
+for (let i=0; i<array.length; i++) {
+	let item = array[i];
+	if (typeof item === 'number') {
+		newArray.push(item);
+  }
+}
+
+for (let i=0; i<array.length; i++) {
+  for (let j=0; j<array.length-i-1; j++) {
+    if (newArray[j] > newArray[j+1]) {
+      let temp = newArray[j+1];
+      newArray[j+1] = newArray[j];
+      newArray[j] = temp;
+    }
+  }
+}
+
+var updatedArray = [];
+for (let i=0; i<newArray.length; i++) {
+  updatedArray.unshift({value: newArray[i], double: newArray[i] << 1});
+}
+
+var i = 0;
+var printThis;
+(printThis = function () {
+  if (i >= updatedArray.length) return;
+  setTimeout(function() {
+    console.log(`The value is {\"double\":${updatedArray[i].double},\"value\":${updatedArray[i].value}}`);
+    i++;
+    printThis();
+  }, 1000 - i*100);
+})();
+
+```
+
+
 Note
 
 * Array reduce
 * Destructuring
+
