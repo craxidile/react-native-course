@@ -1,206 +1,223 @@
-**bold**
-_ilatic_
-
-# h1
-
-* bullet
-
----------------------
-
-
 # Fundamental JavaScript: Data Types Pt. 02
 
 ## 1. Function
 
-once type not function 
+_once type of javascript_
 
-typeof a; --> function
+```javascript
+var a = function(){};
+
+typeof a;
+//result function
+```
+### declare function
 
 
 **format 1**
 
 ```javascript
-function a () { z();}
+function a () { 
+  z();
+}
 ```
-_can define not call_
 
 **format 2**
 
 ```javascript
-const y = function () { console.log('function')} 
+const y = function () { console.log('function'); } 
 ```
 
 **format 3**
 
-arrow function
+_arrow function_
 
 ```javascript
-var a = () => {console.log('hello')} 
+var a = () => { console.log('hello'); } 
+a(); // result 'hello'
 
 var a = () => 1;
 // return 1 
-
 ```
 **Note** 
-
 _default return undefined_ 
 
-**Parameter of function**
+
+### Parameter of function
 
 ```javascript
-var a = function(a) {return a+1; }
+var a = function(a) {return a + 1; }
 
 a(1);
 // result = 2
 
-var a = (a) => a+1;
 // short hand
+var a = (a) => a + 1;
+var a = a => a + 1;
 
-var a = a => a+1;
-// short hand(2)
+a(2);
+// result = 3 
 
-var a = (a,b) => a+b;
+// more than one parameter , must use parenthesis
+var a = (a,b) => a + b;
 ```
 **Note**
 
-if don't declare parameter => undefined
+_if not declare parameter and use parameter in function, result equal undefined._
 
 ```javascript
-// use arguments instead of declare paramter
+function b () {
+    console.log(a);
+}
+b();
+// result = undefined
+```
 
+_use arguments instead of paramters_
+
+```javascript
 var a = function()
 { 
-    let args = arguments; return args[0] + args[1]
+    let args = arguments;
+    return args[0] + args[1]
 }
 
 ```
-* Sync
+### Synchronous & Asynchronous
+
+* Synchronous
 
 ```javascript
-        function a () {
-            console.log('1')
-        }
+function a () {
+    console.log('1');
+    console.log('2');
+    console.log('3');
+}
+
+a();
+// result
+// 1
+// 2
+// 3
+
 ```
-* Async
+
+* Asynchronous
 
 ```javascript
-        function a () {
-            setTimeout(() => {console.log('1)}, 1000)
-            console.log('2')
-        } 
+function a () {
+    setTimeout(() => {
+        console.log('1')
+    }, 1000)
+    console.log('2')
+    console.log('3')
+}
+
+a();
+// result
+// 2
+// 3
+// 1
 ```
-
-    **async && await**
-
-```javascript
-        async function b () {
-            return new Promise((resolve, reject)=>{
-                setTimeout(() => {
-                    console.log('1')
-                    resolve();
-
-                });
-
-            })
-        }
-        async function a () {
-            await b();
-            console.log('2');
-            console.log('3');
-            console.log('4');
-            console.log('5');
-        }
-        
-``` 
-
 **Promise**
 
 ```javascript
-
-//bad
-
-setTimeout(()=>{
+//Bad call asynchronous function
+setTimeout(() => {
     console.log('First')
-    setTimeout(()=>{
+    setTimeout(( )=> {
         console.log('Second')
+    }, 1000);
+}, 1000);
 
-    },1000)
-},1000)
-
+// result
+// First
+// Second
 ```
-**resolve by promise**
+**resolve by use promise**
 
-**chain**
+_chain function_
 
 ```javascript
-
- a().b().c()
-//promise chain by then
-
+a().b().c()
 ```
+_promise chain by use then_
+
+**resolve**
+
+_resolve to next then_
+
+**reject**
+
+_reject to skip all then below and to catch_ 
+
+### Create promise
+
+**format 1**
 
 ```javascript
-// format 1 of promise
-
-//resolve to next then , reject to catch
-
-new Promise( (resolve,reject) => {
+new Promise( (resolve, reject) => {
 
 });
 
-new Promise( (resolve,reject) => {
-    setTimeout(() =>{
+new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('First');
+        resolve();
+    },1000);
+
+}).then(() => new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('Second');
+        resolve();
+    },1000);
+}));
+
+// result
+// First
+// Second
+
+```
+**format 2**
+
+```javascript
+var a = () => new Promise((resolve, reject) => {
+    setTimeout(() => {
         console.log('first');
         resolve();
-    },1000)
-
-}).then(()=> new Promise( (resolve,reject) => {
-    setTimeout(() =>{
-        console.log('first');
-         resolve();
-    },1000)
-});
-
-
-//format 2 
-
-var a = () => new Promise((resolve,reject) => {
-    setTimeout(() =>{
-        console.log('first');
-         resolve();
-    },1000)
+    }, 1000)
 });
 
 a().then(a).then(a).then(a);
 
-// generator
+// create generator
 
-var a = (text)=> {
-    return () => new Promise((resolve,reject) => {
+var a = (text) => {
+    return () => new Promise((resolve, reject) => {
     setTimeout(() =>{
         console.log(`${text} second.`);
          resolve();
-    },1000)
-});
-}
+    }, 1000)
+});}
 
 a('0')().then(a('First')).then(a('Second')).then(a('Third'));
+```
 
-//format 3 async await
+**format 3**
 
-// in promise have async can use await
+```javascript
+//async await
 
-function a(){
-    return new Promise((resolve,reject) =>{
-        setTimeout(()=>{
-            console.log('Second')
-            resolve(new Date())
+function a (text) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`${text} second.`);
+            resolve(new Date());
 
-        },1000)
+        }, 1000)
     })
 }
 
-async function b(){
+async function b () {
     let d;
     d = await a('First')
     console.log(d)
@@ -210,51 +227,87 @@ async function b(){
     console.log(d)
 
 }
-//resolve use same normal return of function
 
-//reject
+b();
 
-new Promise((resolve,reject)=>{
+// result
+// First second.
+// Thu Sep 21 2017 20:36:22 GMT+0700 (SE Asia Standard Time)
+// Second second.
+// Thu Sep 21 2017 20:36:23 GMT+0700 (SE Asia Standard Time)
+// Third second.
+// Thu Sep 21 2017 20:36:24 GMT+0700 (SE Asia Standard Time)
 
-    setTimeout(()=>{
-            console.log('Second')
-            reject() // or 
-            throw new Error('Test error')
-    },1000)
+```
+**Use reject**
 
-}).then(()=>{
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
+```javascript
+new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('First')
+        reject() 
+        // or 
+        //throw new Error('Test error')
+    }, 1000)
+
+}).then(() => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             console.log('Second')
             resolve()
 
-        },1000)
-    })
-
-
-}).catch((error) => {
-    console.log('reject', error.message)
+        }, 1000)
+})}).catch((error) => {
+    console.log('reject')
 });
 
-```
+// result
+// First
+// reject
 
+```
+### async && await
 
 ```javascript
-function A() {
 
+async function b (text) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(() => {
+            console.log(text)
+            resolve();
+
+        }, 1000);
+    })
+}
+
+async function a () {
+    await b (1);
+    await b (2);
+    await b (3);
+}
+
+// result
+// 1
+// 2
+// 3
+``` 
+
+**function object**
+```javascript
+function A () {
     this.name = 'pond'
     //constructors
 }
 new A();
-
-a.name // result pond
+a.name 
+// result pond
 
 ```
 
 **prototype**
 
 ```javascript
-function A() {
+function A () {
     this.name = 'pond'
     //constructors
 }
@@ -264,22 +317,25 @@ A.prototype.sayHello = function() {
     //this.name use variable of class
 }
 
-
-
 var a = new A();
-
 a.sayHello()
+// result
+// hello pond
+ 
 
-
-
-//error 
-
-A.prototype.sayHello = ()=> {
+A.prototype.sayHello = () => {
     console.log(`hello ${this.name}`)
     //this.name use variable of class
 }
 
+// result
+// hello
+// not print this.name (pond)
+
 ```
+**Note**
+_if use this , must declare function () not arrow function()_
+
 
 **inherit**
 
@@ -289,93 +345,121 @@ function A(name) {
 
 }
 
-A.prototype.sayHello = function(){
+A.prototype.sayHello = function () {
     console.log(`hello ${this.name}`)
 }
 
 function Cat(){
-    A.prototype.apply(this, ['Cat']);
+    A.apply(this, ['Cat']);
 }
 
 var cat = new Cat();
+cat.name 
+//result cat
 
-cat.name //result cat
+```
+**class in function**
 
-
-
-// class in function
+```javascript
 
 Cat.prototype = new A();
 var cat = new Cat();
 cat.sayHello();
 
-// -------------------------
+```
+**call function with apply and call**
 
+```javascript
 
-function a (name) { console.log('Hello' + name)}
+// example 1
 
-a('aaa'); // result Hello aaa
+function a (name) { 
+    console.log('Hello ' + name)
+}
+a('aaa'); 
+// result Hello aaa
 
-a.apply(null,['pond']);
-// call function
+a.apply(null, ['pond']);
+// result Hello pond
 
-
+// example 2
 
 var b = {};
-function a(name) { this.name = name;} 
-a.apply(b,['pond']);
-//call function
+function a (name) { 
+    this.name = name;
+} 
+a.apply(b, ['pond']);
+a.call(null, 'pond');
 
-a.call(null,'pond');
+// b = {name: 'pond'} 
 
 
-function a(name,i){
-    console.log('Hello' + name,i);
+// example 3
+function a (name, i) {
+    console.log('Hello ' + name, i);
 
 }
 
 a('pond',1)
-a.call(null,pond,1)
+a.call(null,'pond',1)
 a.apply(null,['pond',1]);
 
+// result Hello pond 1
 ```
-_function is truty_
+
+**note**
+_function is truthy_
+
+
 
 ## 2. Object
 
 **Create object**
 
-_Object is truty_
+_Object is truthy_
 
 _null is falsy_
 
+_null is type object_
+
+**create object**
 ```javascript
 var a = { name: 'pond'}
 
 var a = new Object();
 
 var a = new A();
-
-
 ```
 
-**access**
+**Access property in object**
 ```javascript
-var a = {name: 'pond',id: 1}
-a.name // or
-
+var a = {name: 'pond', id: 1}
+a.name 
+// or
 a[name]
 
+// loop object
 for (let key in a){
     console.log(key, a[key]);
 }
+// result 
+// name pond
+// id 1
 
-Object.keys(a); // return arrays
+// use Object.key()
+
+Object.key(a); // return arrays
 
 let keys = Object.keys(a);
-for (let i = 0; i< keys.lenght; i++){
-    console.log(key[i], a[keys[i]])
+for (let i = 0; i< keys.length; i++){
+    console.log(keys[i], a[keys[i]])
 }
+
+// result 
+// name pond
+// id 1
+
+
 
 //add property
 a.age = 100
@@ -649,10 +733,5 @@ var a = [1,2,3,4,5,6];
 Array.prototype.push.applay(a,[9998,9997,9996]);
 ```
 
-_array is truty_
+_array is truthy_
 
-## 4. Class
-
-```javascript
-
-```
