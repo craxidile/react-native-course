@@ -67,7 +67,11 @@ const StatelessComponent = (props) => { return ( <div><span id='cmp'>StatelessCo
 
 ### Reactjs lifecycle
 
+## Old React lifecycle
 ![React Lifecycle](/week03-20171005/images/react-lifecycle.png)
+
+## New React lifecycle
+![React New Lifecycle](/week03-20171005/images/0_OoDfQ7pzAqg6yETH.jpeg)
 
 **See more example**
 
