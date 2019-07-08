@@ -59,13 +59,17 @@ _Scopes could be made by using __closures__._
 ```
 
 ## 2. Types in JavaScript
-
+  Imutable(pass by value) 
   * Undefined
   * Boolean (true|false)
   * Number
   * String
+ 
+  Mutable (pass by reference)
   * Object
   * Function
+ 
+check type variable by tyoeof ....
 
 ## 3. Truthy and Falsy
 Truthy values represent the value __true__ when they appear in boolean expressions.
